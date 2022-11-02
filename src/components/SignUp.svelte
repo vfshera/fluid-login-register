@@ -6,14 +6,14 @@
 
 <section class="signup-form w-2/5 text-white flex flex-col justify-between">
 	<h1
-		in:fade={{ delay: 500, duration: 300, easing: quintInOut }}
-		class="uppercase text-5xl font-bold"
+		data-text="Sign Up"
+		class="uppercase text-5xl font-bold before:content-[attr(data-text)] whitespace-nowrap before:overflow-hidden  before:mt-2  relative before:absolute before:animate-[cut-text_5s_ease-out_forwards]"
 	>
-		Sign Up
+		&nbsp;
 	</h1>
 
 	<form
-		in:fly={{ delay: 600, y: 200, duration: 700, opacity: 0, easing: sineInOut }}
+		in:fly={{ delay: 1000, y: 200, duration: 700, opacity: 0, easing: sineInOut }}
 		action=""
 		class="flex flex-col gap-5"
 	>
