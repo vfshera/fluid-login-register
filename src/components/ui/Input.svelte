@@ -7,11 +7,12 @@
 
 <div class="input-group relative w-full overflow-hidden font-semibold">
 	<label
-		for=""
-		class="pointer-events-none text-gray-100 absolute transition-transform duration-200 top-[50%] -translate-y-[50%] {focused
-			? '-translate-x-[100%]'
-			: ''}">{inputLabel}</label
-	>
+		for={inputLabel.toLowerCase()}
+		data-text={inputLabel}
+		class="pointer-events-none text-gray-100 h-full before:content-[attr(data-text)] whitespace-nowrap before:overflow-hidden  before:mt-2  relative before:absolute  {focused
+			? 'before:animate-[cut-text_5s_ease-out_infinite] '
+			: ''}"
+	/>
 	<input
 		on:focus={() => (focused = true)}
 		on:blur={() => {
@@ -23,3 +24,6 @@
 		class="border-b border-[#313638] bg-transparent text-gray-100 w-full p-2 outline-none"
 	/>
 </div>
+
+<style>
+</style>
