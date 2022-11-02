@@ -7,14 +7,16 @@
 	let over = 0;
 
 	let showSignIn = false;
-	let showSignUp = false;
+	let showSignUp = true;
 
 	function toggleSignUp() {
-		showSignUp = !showSignUp;
+		if (showSignUp) return;
+		showSignUp = true;
 		showSignIn = false;
 	}
 	function toggleSignIn() {
-		showSignIn = !showSignIn;
+		if (showSignIn) return;
+		showSignIn = true;
 		showSignUp = false;
 	}
 </script>
@@ -35,7 +37,7 @@
 			: ''}  after:z-10 hover:after:right-0 hover:after:top-0  after:transition-transform after:rounded-tr-[300%] after:rounded-br-[300%] after:ease-out  after:duration-500 hover:after:translate-x-[100%] after:bg-[#1b1d1e] after:translate-x-0 after:h-full"
 	>
 		{#if showSignIn}
-			<div class="signin-form-wrapper">
+			<div class="signin-form-wrapper flex justify-center pt-16 h-4/5">
 				<SignIn />
 			</div>
 		{:else}
@@ -73,7 +75,7 @@
 			: ''}  before:z-10 hover:before:left-0 hover:before:top-0 before:transition-transform before:rounded-tl-[300%] before:rounded-bl-[300%] before:ease-out  before:duration-500 hover:before:-translate-x-[100%] before:translate-x-0 before:bg-[#242728] before:h-full"
 	>
 		{#if showSignUp}
-			<div class="signup-form-wrapper">
+			<div class="signup-form-wrapper flex justify-center pt-16 h-4/5">
 				<SignUp />
 			</div>
 		{:else}
