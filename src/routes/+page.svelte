@@ -32,12 +32,12 @@
 			? 'w-[90%]'
 			: showSignUp
 			? 'w-[10%]'
-			: ''} transition-all duration-400 ease-out bg-[#1b1d1e] relative {!showSignIn
+			: ''} transition-all duration-500 ease-out bg-[#1b1d1e] relative {!showSignIn
 			? 'hover:after:w-20 hover:after:content-[""] hover:after:absolute'
 			: ''}  after:z-10 hover:after:right-0 hover:after:top-0  after:transition-transform after:rounded-tr-[300%] after:rounded-br-[300%] after:ease-out  after:duration-500 hover:after:translate-x-[100%] after:bg-[#1b1d1e] after:translate-x-0 after:h-full"
 	>
 		{#if showSignIn}
-			<div class="signin-form-wrapper flex justify-center pt-16 h-4/5">
+			<div class="signin-form-wrapper flex justify-center pt-16 h-3/4">
 				<SignIn />
 			</div>
 		{:else}
@@ -70,12 +70,12 @@
 			? 'w-[90%]'
 			: showSignIn
 			? 'w-[10%]'
-			: ''} transition-all duration-400 ease-out bg-[#242728] relative  {!showSignUp
+			: ''} transition-all duration-500 ease-out bg-[#242728] relative  {!showSignUp
 			? 'hover:before:absolute  hover:before:w-20 hover:before:content-[""]'
 			: ''}  before:z-10 hover:before:left-0 hover:before:top-0 before:transition-transform before:rounded-tl-[300%] before:rounded-bl-[300%] before:ease-out  before:duration-500 hover:before:-translate-x-[100%] before:translate-x-0 before:bg-[#242728] before:h-full"
 	>
 		{#if showSignUp}
-			<div class="signup-form-wrapper flex justify-center pt-16 h-4/5">
+			<div class="signup-form-wrapper flex justify-center pt-16 h-3/4">
 				<SignUp />
 			</div>
 		{:else}
