@@ -2,7 +2,9 @@
 </script>
 
 <div class="login-signup min-h-full flex">
-	<div class="signin min-h-full w-1/2 bg-[#1b1d1e] ">
+	<div
+		class="signin min-h-full w-1/2 bg-[#1b1d1e] relative  hover:after:absolute after:z-10 hover:after:right-0 hover:after:top-0 hover:after:w-20 hover:after:content-[''] after:transition-transform after:rounded-tr-[300%] after:rounded-br-[300%] after:ease-out  after:duration-500 hover:after:translate-x-[100%] after:bg-[#1b1d1e] after:translate-x-0 after:h-full"
+	>
 		<!-- icons -->
 		<div
 			class="icon  h-full w-full cursor-pointer flex  gap-3 justify-center items-center flex-col"
@@ -22,7 +24,9 @@
 			<p class="uppercase font-semibold text-white">sign in</p>
 		</div>
 	</div>
-	<div class="signup min-h-full w-1/2 bg-[#242728] ">
+	<div
+		class="signup min-h-full w-1/2 bg-[#242728] relative  hover:before:absolute before:z-10 hover:before:left-0 hover:before:top-0 hover:before:w-20 hover:before:content-[''] before:transition-transform before:rounded-tl-[300%] before:rounded-bl-[300%] before:ease-out  before:duration-500 hover:before:-translate-x-[100%] before:translate-x-0 before:bg-[#242728] before:h-full"
+	>
 		<!-- icons -->
 		<div
 			class="icon  h-full w-full cursor-pointer flex gap-3  justify-center items-center flex-col"
