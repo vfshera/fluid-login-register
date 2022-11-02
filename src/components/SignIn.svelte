@@ -1,11 +1,22 @@
 <script>
+	import { fade, fly } from 'svelte/transition';
+	import { quintInOut, sineInOut } from 'svelte/easing';
 	import Input from './ui/Input.svelte';
 </script>
 
 <section class="signin-form w-2/5 text-gray-200 flex flex-col justify-between">
-	<h1 class="uppercase text-5xl font-bold">Sign In</h1>
+	<h1
+		in:fade={{ delay: 500, duration: 300, easing: quintInOut }}
+		class="uppercase text-5xl font-bold"
+	>
+		Sign In
+	</h1>
 
-	<form action="" class="flex flex-col gap-5">
+	<form
+		in:fly={{ delay: 600, y: 200, duration: 700, opacity: 0, easing: sineInOut }}
+		action=""
+		class="flex flex-col gap-5"
+	>
 		<Input inputLabel="Email" type="text" />
 		<Input inputLabel="Password" type="password" />
 		<div class="flex justify-between items-center">
@@ -48,7 +59,7 @@
 				</a>
 			</div>
 
-			<button type="submit" class="bg-[#1b1d1e] flex justify-center items-center rounded-full w-20">
+			<button type="submit" class="bg-[#222526] flex justify-center items-center rounded-full w-20">
 				<img
 					src="right_arrow.svg"
 					alt=""

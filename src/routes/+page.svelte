@@ -1,5 +1,5 @@
 <script>
-	import { toggle_class } from 'svelte/internal';
+	import { fly, fade } from 'svelte/transition';
 	import SignIn from '../components/SignIn.svelte';
 	import SignUp from '../components/SignUp.svelte';
 
@@ -7,7 +7,7 @@
 	let over = 0;
 
 	let showSignIn = false;
-	let showSignUp = true;
+	let showSignUp = false;
 
 	function toggleSignUp() {
 		if (showSignUp) return;
@@ -37,12 +37,13 @@
 			: ''}  after:z-10 hover:after:right-0 hover:after:top-0  after:transition-transform after:rounded-tr-[300%] after:rounded-br-[300%] after:ease-out  after:duration-500 hover:after:translate-x-[100%] after:bg-[#1b1d1e] after:translate-x-0 after:h-full"
 	>
 		{#if showSignIn}
-			<div class="signin-form-wrapper flex justify-center pt-16 h-3/4">
+			<div in:fade={{ delay: 500 }} class="signin-form-wrapper flex justify-center pt-16 h-3/4">
 				<SignIn />
 			</div>
 		{:else}
 			<!-- icons -->
 			<div
+				transition:fade
 				class="icon relative z-20  h-full w-full cursor-pointer flex  gap-3 justify-center items-center flex-col"
 			>
 				<div class="p-3 border-4 border-[#2b2f31] rounded-full w-max relative">
@@ -75,12 +76,13 @@
 			: ''}  before:z-10 hover:before:left-0 hover:before:top-0 before:transition-transform before:rounded-tl-[300%] before:rounded-bl-[300%] before:ease-out  before:duration-500 hover:before:-translate-x-[100%] before:translate-x-0 before:bg-[#242728] before:h-full"
 	>
 		{#if showSignUp}
-			<div class="signup-form-wrapper flex justify-center pt-16 h-3/4">
+			<div in:fade={{ delay: 500 }} class="signup-form-wrapper flex justify-center pt-16 h-3/4">
 				<SignUp />
 			</div>
 		{:else}
 			<!-- icons -->
 			<div
+				transition:fade
 				class="icon relative z-20  h-full w-full cursor-pointer flex gap-3  justify-center items-center flex-col"
 			>
 				<div class="p-3 border-4 border-white rounded-full w-max relative">
