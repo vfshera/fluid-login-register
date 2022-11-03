@@ -1,6 +1,6 @@
 import lucia from 'lucia-auth';
 import adapter from '@lucia-auth/adapter-mongoose';
-import mongoose, { Schema } from 'mongoose';
+import mongoose from 'mongoose';
 import SessionSchema from '../models/SessionSchema.js';
 import UserSchema from '../models/UserSchema.js';
 

@@ -7,6 +7,7 @@ import { handleMiddleware } from '@lucia-auth/express';
 
 import { LoginValidation, RegisterValidation } from './validation/UserValidation.js';
 import { validate, ValidationError } from 'express-validation';
+import { LuciaError } from 'lucia-auth';
 
 dotenv.config();
 connect();
@@ -19,12 +20,15 @@ app.use(express.json());
 // change this
 app.use(cors({ origin: '*' }));
 
-app.get('/api/users', async (req, res) => {
-	const users = await User.find();
-	res.status(200).json(users);
-});
-
 app.post('/api/login', validate(LoginValidation, { keyByField: true }, {}), async (req, res) => {
+	try {
+		await auth.authenticateUser('email', req.body.email, req.body.password);
+	} catch (error) {
+		if (error instanceof LuciaError) {
+			return res.status(200).json({ error });
+		}
+		return res.status(400).json({ error });
+	}
 	res.status(200).json(req.body);
 });
 
@@ -36,6 +40,20 @@ app.post(
 
 		if (password_confirm !== credentials.password) {
 			res.status(400).json({ message: 'Password mismatch' });
+		}
+
+		try {
+			const user = await auth.createUser('email', credentials.email, {
+				password: credentials.password,
+				attributes: { username: credentials.username }
+			});
+			console.log({ user });
+		} catch (error) {
+			if (error instanceof LuciaError) {
+				return res.status(200).json({ error });
+			}
+
+			return res.status(400).json({ error });
 		}
 
 		res.status(200).json(req.body);
