@@ -1,7 +1,16 @@
 <script>
-	import { fade, fly } from 'svelte/transition';
-	import { quintInOut, sineInOut } from 'svelte/easing';
+	import { fly } from 'svelte/transition';
+	import { sineInOut } from 'svelte/easing';
 	import Input from './ui/Input.svelte';
+
+	let username = '';
+	let email = '';
+	let password = '';
+	let password_confirm = '';
+
+	function register() {
+		console.log(username, email, password, password_confirm);
+	}
 </script>
 
 <section class="signup-form w-3/5 lg:w-2/5 text-white flex flex-col justify-between">
@@ -13,14 +22,15 @@
 	</h1>
 
 	<form
+		on:submit|preventDefault={() => register()}
 		in:fly={{ delay: 1000, y: 200, duration: 700, opacity: 0, easing: sineInOut }}
 		action=""
 		class="flex flex-col gap-5"
 	>
-		<Input inputLabel="Username" type="text" />
-		<Input inputLabel="Email" type="text" />
-		<Input inputLabel="Password" type="password" />
-		<Input inputLabel="Confirm Password" type="password" />
+		<Input inputLabel="Username" type="text" bind:inputValue={username} />
+		<Input inputLabel="Email" type="email" bind:inputValue={email} />
+		<Input inputLabel="Password" type="password" bind:inputValue={password} />
+		<Input inputLabel="Confirm Password" type="password" bind:inputValue={password_confirm} />
 		<div class="flex justify-between items-center">
 			<div class="socials flex items-center gap-3">
 				<a href="/">
