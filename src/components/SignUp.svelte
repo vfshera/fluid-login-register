@@ -2,6 +2,7 @@
 	import { fly } from 'svelte/transition';
 	import { sineInOut } from 'svelte/easing';
 	import Input from './ui/Input.svelte';
+	import axios from '$lib/axios';
 
 	let username = '';
 	let email = '';
@@ -9,7 +10,12 @@
 	let password_confirm = '';
 
 	function register() {
-		console.log(username, email, password, password_confirm);
+		if (username != '' && password != '' && email != '') {
+			axios
+				.post('/register', { username, email, password, password_confirm })
+				.then((res) => alert(res))
+				.catch((err) => alert(err));
+		}
 	}
 </script>
 

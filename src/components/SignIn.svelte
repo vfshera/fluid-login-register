@@ -2,12 +2,18 @@
 	import { fly } from 'svelte/transition';
 	import { sineInOut } from 'svelte/easing';
 	import Input from './ui/Input.svelte';
+	import axios from '$lib/axios';
 
 	let email = '';
 	let password = '';
 
 	function login() {
-		console.log(email, password);
+		if (email != '' && password != '') {
+			axios
+				.post('/login', { email, password })
+				.then((res) => alert(res))
+				.catch((err) => alert(err));
+		}
 	}
 </script>
 
