@@ -4,7 +4,7 @@
 	import Input from './ui/Input.svelte';
 </script>
 
-<section class="signup-form w-2/5 text-white flex flex-col justify-between">
+<section class="signup-form w-3/5 lg:w-2/5 text-white flex flex-col justify-between">
 	<h1
 		data-text="Sign Up"
 		class="uppercase text-5xl font-bold before:content-[attr(data-text)] whitespace-nowrap before:overflow-hidden  before:mt-2  relative before:absolute before:animate-[cut-text_5s_ease-out_forwards]"
