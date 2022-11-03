@@ -2,7 +2,8 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import connect from './db.js';
-import User from './models/User.js';
+import { auth, User } from './auth/lucia.js';
+import { handleMiddleware } from '@lucia-auth/express';
 
 import { LoginValidation, RegisterValidation } from './validation/UserValidation.js';
 import { validate, ValidationError } from 'express-validation';
@@ -11,6 +12,8 @@ dotenv.config();
 connect();
 
 const app = express();
+
+app.use(handleMiddleware(auth));
 
 app.use(express.json());
 // change this

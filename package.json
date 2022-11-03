@@ -29,11 +29,14 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@lucia-auth/adapter-mongoose": "^0.1.1",
+		"@lucia-auth/express": "^0.1.1",
 		"axios": "^1.1.3",
 		"cors": "^2.8.5",
 		"dotenv": "^16.0.3",
 		"express": "^4.18.2",
 		"express-validation": "^4.1.0",
+		"lucia-auth": "^0.1.2",
 		"mongoose": "^6.7.1"
 	}
 }
